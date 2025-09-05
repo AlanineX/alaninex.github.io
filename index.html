@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Bio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 60px;
+    }
+    .container {
+      display: flex;              /* Side-by-side layout */
+      align-items: flex-start;    /* Align top edges */
+      gap: 40px;                  /* Space between bio and artwork */
+    }
+    .bio {
+      max-width: 400px;           /* Limit width for readability */
+    }
+    .artwork iframe {
+      border: none;
+      width: 800px;
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left column: bio -->
+    <div class="bio">
+      <h2>Zhenyu Xi (Alan)</h2>
+      <img src="./IMG_0095.JPG" alt="My Picture" width="200">
+
+      <h2>Education</h2>
+      <ul>
+        <li>PhD Candidate, Chemistry, Texas A&M University, USA</li>
+        <li>Bachelor of Science, Chemistry, Southern University of Science and Technology, China</li>
+      </ul>
+
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Native Mass Spectrometry</li>
+        <li>Molecular Dynamics Simulation</li>
+      </ul>
+
+      <h2>Contact</h2>
+      <p>Email: zhenyu_xi@tamu.edu</p>
+    </div>
+
+    <!-- Right column: artwork -->
+    <div class="artwork">
+      <h2>Loading some artwork...</h2>
+      <h4>Differential Water Density Map of TTR Solvation Shell</h4>
+      <iframe src="./surface_custom_backbone_black.html"></iframe>
+    </div>
+  </div>
+</body>
+</html>
