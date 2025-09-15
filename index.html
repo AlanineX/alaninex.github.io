@@ -7,8 +7,10 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       background:
-        url('./background_1.png') top right/auto 70% no-repeat,
-        linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+        url('./background_1.png') 80% 380%/auto 110% no-repeat fixed,
+        /* url('./background_2.png') 20% 20%/auto 120% no-repeat fixed, */
+        linear-gradient(135deg, #7892ac 0%, #34495e 50%, #051d35 100%) fixed;
+      background-attachment: fixed;
       color: #333;
       overflow-x: hidden;
       min-height: 100vh;
@@ -18,23 +20,6 @@
     body::before {
       content: '';
       position: fixed;
-      top: 0;
-      right: 0;
-      width: 70%;
-      height: 100vh;
-      background: linear-gradient(to bottom,
-        rgba(44, 62, 80, 0) 0%,
-        rgba(44, 62, 80, 0) 60%,
-        rgba(44, 62, 80, 0.1) 70%,
-        rgba(44, 62, 80, 0.3) 85%,
-        rgba(44, 62, 80, 0.6) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    body::before {
-      content: '';
-      position: absolute;
       top: 0;
       right: 0;
       width: 50%;
@@ -47,7 +32,7 @@
     .main-container {
       display: flex;
       min-height: 100vh;
-      padding: 180px 20px 20px 20px;
+      padding: 250px 20px 20px 20px;
       gap: 20px;
       position: relative;
       z-index: 2;
@@ -55,15 +40,15 @@
 
     .left-sidebar {
       width: 280px;
-      background: rgba(52, 73, 94, 0.15);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(52, 73, 94, 0.25);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(52, 152, 219, 0.2);
       border-radius: 16px;
       display: flex;
       flex-direction: column;
       box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 8px 32px rgba(52, 152, 219, 0.15),
+        inset 0 1px 0 rgba(52, 152, 219, 0.1);
       position: relative;
       overflow: hidden;
     }
@@ -79,26 +64,35 @@
     }
 
     .portrait-section {
-      padding: 25px;
+      padding: 25px 20px;
       text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.08) 0%, rgba(52, 152, 219, 0.03) 100%);
+      backdrop-filter: blur(10px);
     }
 
     .portrait-section img {
-      width: 100px;
-      height: 100px;
-      border-radius: 12px;
+      width: 110px;
+      height: 110px;
+      border-radius: 16px;
       object-fit: cover;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       margin-bottom: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      opacity: 0.9;
+      box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      opacity: 0.95;
       transition: all 0.3s ease;
     }
 
     .portrait-section img:hover {
       opacity: 1;
       transform: scale(1.02);
+      border-color: rgba(52, 152, 219, 0.4);
+      box-shadow: 
+        0 12px 32px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(52, 152, 219, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
     .portrait-section h1 {
@@ -110,7 +104,7 @@
     }
 
     .portrait-section p {
-      margin: 4px 0;
+      margin: 2px 0;
       color: #bdc3c7;
       font-size: 13px;
     }
@@ -118,34 +112,42 @@
     .tabs-container {
       flex: 1;
       padding: 15px 0;
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(52, 152, 219, 0.02) 100%);
+      backdrop-filter: blur(5px);
     }
 
-    .tab {
+    .tab { 
       display: block;
       width: 100%;
-      padding: 12px 25px;
+      padding: 15px 25px;
       cursor: pointer;
       border: none;
       background: transparent;
       color: #95a5a6;
-      font-family: inherit;
-      font-size: 14px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 15px;
       transition: all 0.3s ease;
       border-left: 3px solid transparent;
       text-align: left;
+      position: relative;
+      backdrop-filter: blur(5px);
     }
 
     .tab:hover {
-      background: rgba(52, 152, 219, 0.1);
+      background: rgba(52, 152, 219, 0.08);
       color: #3498db;
       border-left: 3px solid #3498db;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .tab.active {
-      background: rgba(243, 156, 18, 0.1);
+      background: rgba(243, 156, 18, 0.12);
       color: #f39c12;
       border-left: 3px solid #f39c12;
       font-weight: 500;
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(243, 156, 18, 0.2);
     }
 
     .main-content {
@@ -174,7 +176,7 @@
 
     .terminal {
       width: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(10px);
       border: none;
       border-radius: 16px;
@@ -189,9 +191,9 @@
     .terminal-header {
       display: flex;
       align-items: center;
-      margin-bottom: 0;
-      padding: 18px 25px;
-      background: linear-gradient(135deg, rgba(44, 62, 80, 0.4) 0%, rgba(52, 73, 94, 0.3) 100%);
+      margin: 0;
+      padding: 15px 25px;
+      background: linear-gradient(135deg, rgba(44, 62, 80, 0.1) 0%, rgba(52, 73, 94, 0.08) 100%);
       backdrop-filter: blur(15px);
       border-radius: 15px 15px 0 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -216,7 +218,7 @@
     .terminal-title {
       margin-left: 20px;
       color: #bdc3c7;
-      font-size: 13px;
+      font-size: 20px;
       font-family: 'Courier New', monospace;
     }
 
@@ -227,6 +229,7 @@
       color: #3498db;
       font-size: 16px;
       line-height: 1.6;
+      white-space: normal;
     }
 
     .terminal-content.active {
@@ -261,52 +264,68 @@
 
     .success {
       color: #27ae60;
+      display: inline;
+      margin: 0;
+      padding: 0;
     }
 
-    .info {
+    .content-title {
+      color: #f39c12;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .content-description {
       color: #3498db;
+      margin-left: 15px;
+      font-size: 15px;
     }
 
-    .research-subtabs {
+    .subtabs {
       display: flex;
       gap: 8px;
       margin: 15px 0;
       flex-wrap: wrap;
     }
 
-    .research-subtab {
+    .subtab {
       padding: 6px 12px;
       background: rgba(52, 73, 94, 0.3);
       color: #95a5a6;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 6px;
       cursor: pointer;
-      font-size: 11px;
+      font-size: 14px;
       font-family: 'Courier New', monospace;
       transition: all 0.3s ease;
     }
 
-    .research-subtab:hover {
+    .subtab:hover {
       background: rgba(52, 152, 219, 0.2);
       color: #3498db;
       border-color: #3498db;
     }
 
-    .research-subtab.active {
+    .subtab.active {
       background: rgba(243, 156, 18, 0.3);
       color: #f39c12;
       border-color: #f39c12;
     }
 
-    .research-content {
+    .content-section {
       display: none;
     }
-
-    .research-content.active {
+    .content-section.active {
       display: block;
     }
+    .content-section:empty {
+      display: none !important;
+    }
+    .content-section.active:empty {
+      display: none !important;
+    }
 
-    .research-case {
+    .content-case {
       margin: 12px 0;
       padding: 12px;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -317,13 +336,13 @@
 
     .artwork-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
-      margin: 15px 0;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin: 20px 0;
     }
 
     .artwork-item {
-      height: 180px;
+      height: 400px;
       background: rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 8px;
@@ -416,10 +435,9 @@
 
       <div class="tabs-container">
         <button class="tab active" onclick="showTab('bio')">Biography</button>
+        <button class="tab" onclick="showTab('publications')">Publications</button>
         <button class="tab" onclick="showTab('research')">Research</button>
         <button class="tab" onclick="showTab('artwork')">Artwork</button>
-        <button class="tab" onclick="showTab('module1')">Module 1</button>
-        <button class="tab" onclick="showTab('module2')">Module 2</button>
       </div>
     </div>
 
@@ -439,30 +457,43 @@
     <div id="bio" class="terminal-content active">
       <div class="prompt">alan@personal-homepage:~$ ls bio/</div>
       <div id="bio-text"></div>
-
       <!-- Bio Subtabs -->
-      <div class="research-subtabs">
-        <button class="research-subtab active" onclick="showBioSubtab('about')">about/</button>
-        <button class="research-subtab" onclick="showBioSubtab('education')">education/</button>
-        <button class="research-subtab" onclick="showBioSubtab('skills')">skills/</button>
-        <button class="research-subtab" onclick="showBioSubtab('contact')">contact/</button>
+      <div class="subtabs">
+        <button class="subtab active" onclick="showSubtab('bio', 'about')">about/</button>
+        <button class="subtab" onclick="showSubtab('bio', 'education')">education/</button>
+        <button class="subtab" onclick="showSubtab('bio', 'skills')">skills/</button>
+        <button class="subtab" onclick="showSubtab('bio', 'contact')">contact/</button>
       </div>
-
       <!-- Bio Subtab Contents -->
-      <div id="about" class="research-content active">
+      <div id="about" class="content-section">
         <div id="about-cases"></div>
       </div>
-
-      <div id="education" class="research-content">
+      <div id="education" class="content-section">
         <div id="education-cases"></div>
       </div>
-
-      <div id="skills" class="research-content">
+      <div id="skills" class="content-section">
         <div id="skills-cases"></div>
       </div>
-
-      <div id="contact" class="research-content">
+      <div id="contact" class="content-section">
         <div id="contact-cases"></div>
+      </div>
+    </div>
+
+    <!-- Publications Tab -->
+    <div id="publications" class="terminal-content">
+      <div class="prompt">alan@personal-homepage:~$ ls publications/</div>
+      <div id="publications-text"></div>
+      <!-- Publications Subtabs -->
+      <div class="subtabs">
+        <button class="subtab active" onclick="showSubtab('publications', 'peer_reviewed')">peer-reviewed/</button>
+        <button class="subtab" onclick="showSubtab('publications', 'in_preparation')">in-preparation/</button>
+      </div>
+      <!-- Publications Subtab Contents -->
+      <div id="peer_reviewed" class="content-section">
+        <div id="peer_reviewed-cases"></div>
+      </div>
+      <div id="in_preparation" class="content-section">
+        <div id="in_preparation-cases"></div>
       </div>
     </div>
 
@@ -470,29 +501,20 @@
     <div id="research" class="terminal-content">
       <div class="prompt">alan@personal-homepage:~$ ls research/</div>
       <div id="research-text"></div>
-
       <!-- Research Subtabs -->
-      <div class="research-subtabs">
-        <button class="research-subtab active" onclick="showResearchSubtab('publications')">publications/</button>
-        <button class="research-subtab" onclick="showResearchSubtab('projects')">projects/</button>
-        <button class="research-subtab" onclick="showResearchSubtab('techniques')">techniques/</button>
-        <button class="research-subtab" onclick="showResearchSubtab('collaborations')">collaborations/</button>
+      <div class="subtabs">
+        <button class="subtab active" onclick="showSubtab('research', 'projects')">projects/</button>
+        <button class="subtab" onclick="showSubtab('research', 'techniques')">techniques/</button>
+        <button class="subtab" onclick="showSubtab('research', 'collaborations')">collaborations/</button>
       </div>
-
       <!-- Research Subtab Contents -->
-      <div id="publications" class="research-content active">
-        <div id="publications-cases"></div>
-      </div>
-
-      <div id="projects" class="research-content">
+      <div id="projects" class="content-section">
         <div id="projects-cases"></div>
       </div>
-
-      <div id="techniques" class="research-content">
+      <div id="techniques" class="content-section">
         <div id="techniques-cases"></div>
       </div>
-
-      <div id="collaborations" class="research-content">
+      <div id="collaborations" class="content-section">
         <div id="collaborations-cases"></div>
       </div>
     </div>
@@ -512,21 +534,21 @@
         </div>
         <div class="artwork-item" id="artwork2" onclick="loadVideo('artwork2', './research_1_liraglutide_atomic.mp4')">
           <div class="artwork-placeholder">
-            <div class="artwork-title">Liraglutide Atomic</div>
-            <div>MD Simulation</div>
+            <div class="artwork-title">Atomic simulation of liraglutide assembly</div>
+            <div>Atomic MD simulation</div>
             <div class="load-button">Click to Load</div>
           </div>
         </div>
         <div class="artwork-item" id="artwork3" onclick="loadVideo('artwork3', './research_1_liraglutide_coarse.mp4')">
           <div class="artwork-placeholder">
-            <div class="artwork-title">Liraglutide Coarse</div>
+            <div class="artwork-title">Coarse grained simulation to liraglutide oligomerization</div>
             <div>Coarse-Grained MD</div>
             <div class="load-button">Click to Load</div>
           </div>
         </div>
         <div class="artwork-item" id="artwork4" onclick="loadVideo('artwork4', './research_2_lbg_AzdOA_distance.mp4')">
           <div class="artwork-placeholder">
-            <div class="artwork-title">LBG-AzdOA Distance</div>
+            <div class="artwork-title">Dynamic Distance Tracking of Key Atom Pairs</div>
             <div>Binding Analysis</div>
             <div class="load-button">Click to Load</div>
           </div>
@@ -548,17 +570,6 @@
       </div>
     </div>
 
-    <!-- Module 1 Tab -->
-    <div id="module1" class="terminal-content">
-      <div class="prompt">alan@personal-homepage:~$ cat module1.info</div>
-      <div id="module1-text"></div>
-    </div>
-
-    <!-- Module 2 Tab -->
-    <div id="module2" class="terminal-content">
-      <div class="prompt">alan@personal-homepage:~$ cat module2.info</div>
-      <div id="module2-text"></div>
-    </div>
       </div>
     </div>
   </div>
@@ -566,13 +577,7 @@
   <script>
     // Bio content
     const bioContent = `
-bio/
-├── about/
-├── education/
-├── skills/
-└── contact/
-
-Loading personal information...
+Loading biography information...
 `;
 
     // Bio data organized by category
@@ -580,163 +585,136 @@ Loading personal information...
       about: [
         {
           title: "Zhenyu Xi (Alan)",
-          description: "Research Assistant at Russell Lab, Texas A&M University Chemistry Department. Specializing in computational chemistry and molecular dynamics simulations.",
-          status: "Current Position"
+          description: "Hi, I'm Zhenyu Xi (Alan), currently a PhD candidate and a Research Assistant at Russell Lab in Texas A&M University. \
+           My interests lie in Mass spectrometry and molecular dynamics simulations."
         }
       ],
       education: [
         {
           title: "PhD Candidate in Chemistry",
-          description: "Texas A&M University, College Station, TX. Focus on computational chemistry and molecular dynamics simulations.",
-          status: "2022 - Present"
+          description: "Department of Chemistry, Texas A&M University, College Station, TX, USA. (2022 - Present)"
+        },
+        {
+          title: "Graduate Certificate in Computational Technology & Science",
+          description: "Department of Mathematics and the Institute for Scientific Computation, Texas A&M University. (In progress)"
         },
         {
           title: "Bachelor of Science in Chemistry",
-          description: "Southern University of Science and Technology, Shenzhen, China. Graduated with honors.",
-          status: "2018 - 2022"
+          description: "Southern University of Science and Technology, Shenzhen, China. (2018 - 2022)"
         }
       ],
       skills: [
         {
-          title: "Programming",
-          description: "Python (high-performance & parallel computing, PyTorch, Scikit-learn, MDAnalysis); R; MATLAB; Java; SQL; HTML; Linux Shell scripting.",
-          status: "Advanced"
+          title: "Programming Languages & Tools",
+          description: "Python (NumPy, Pandas, Scikit-learn), R (ggplot2, dplyr, caret), MATLAB, Java, SQL (PostgreSQL, MySQL), HTML/CSS/JavaScript, Linux (Ubuntu, CentOS), Bash, Git, Docker, Jupyter, VS Code"
         },
         {
-          title: "Molecular Dynamics Simulation & Computational Chemistry",
-          description: "Gaussian, CP2K, Schrödinger Suite, xTB, GROMACS, NAMD, AMBER, CHARMM, ORCA, LAMMPS, VMD, ChimeraX, PyMOL.",
-          status: "Expert"
-        },
-        {
-          title: "Experimental Techniques",
-          description: "Vacuum glove box; Schlenk line; organic synthesis, peptide synthesis.",
-          status: "Proficient"
-        },
-        {
-          title: "Spectroscopy",
-          description: "1D/2D NMR; UV–Vis absorption; Fluorescence; IR; Circular dichroism (CD).",
-          status: "Intermediate"
-        },
-        {
-          title: "Chromatography",
-          description: "HPLC; GCMS; LCMS for analytical separations and compound identification.",
-          status: "Proficient"
-        },
-        {
-          title: "Mass Spectrometry",
-          description: "Native MS; Ion Mobility MS; Charge Detection MS; Top-down Proteomics; Electron Capture Dissociation (ECD).",
-          status: "Advanced"
+          title: "Machine Learning & AI",
+          description: "K-Means, PCA, Random Forest, SVM, DBSCAN, t-SNE, UMAP, Model Explainability (SHAP, LIME), XGBoost, Neural Networks (PyTorch, TensorFlow), LSTM, CNN, Time Series Forecasting (ARIMA, Prophet)"
         },
         {
           title: "Visualization & Design",
-          description: "Adobe Photoshop, Illustrator, Lightroom, Premiere Pro; Cinema 4D, Blender (molecular visualization, 3D animation, publication-quality figures).",
-          status: "Advanced"
+          description: "VMD, PyMOL, ChimeraX, Plotly, D3.js, Matplotlib, Seaborn, ggplot2, Adobe Creative Suite (Photoshop, Illustrator, Premiere Pro), Blender (3D molecular rendering), Origin, GraphPad Prism"
+        },
+        {
+          title: "Computational Chemistry & MD",
+          description: "GROMACS, NAMD, CHARMM, AMBER, VMD, MARTINI, CHARMM-GUI, Umbrella Sampling, Metadynamics, Replica Exchange MD, Free Energy Perturbation, Steered MD, Coarse-Grained Simulations, Gaussian, CP2K, ORCA"
+        },
+        {
+          title: "Experimental Techniques",
+          description: "Vacuum glove box, Schlenk line, organic synthesis, peptide synthesis"
+        },
+        {
+          title: "Spectroscopy",
+          description: "1D/2D NMR, UV–Vis absorption, Fluorescence, IR, Circular dichroism (CD)"
+        },
+        {
+          title: "Chromatography",
+          description: "HPLC, GCMS, LCMS for analytical separations and compound identification"
+        },
+        {
+          title: "Mass Spectrometry",
+          description: "Native MS, Ion Mobility MS, Charge Detection MS, Top-down Proteomics, Electron Capture Dissociation (ECD)"
         }
       ],
       contact: [
         {
           title: "Email",
-          description: "zhenyu_xi@tamu.edu",
-          status: "Primary Contact"
-        },
-        {
-          title: "Laboratory",
-          description: "Russell Lab, Department of Chemistry, Texas A&M University",
-          status: "Research Affiliation"
+          description: "zhenyu_xi@tamu.edu"
         },
         {
           title: "Location",
-          description: "College Station, Texas, USA",
-          status: "Current Location"
+          description: "College Station, Texas, USA"
+        }
+      ]
+    };
+
+    // Publications data organized by category
+    const publicationsData = {
+      peer_reviewed: [
+        {
+          title: "1. <strong>Xi, Z.</strong>; Kuo, S.-T.; Cong, X.; Yan, X.; Russell, D. H. Revealing Anisotropic Growth of Liraglutide Oligomers by Native Ion Mobility Mass Spectrometry and Molecular Dynamics Simulation. ACS Central Science 2025, 11 (7), 1154-1165.",
+          description: ""
+        },
+        {
+          title: "2. Lantz, C.; Rider, R.; Kuo, S.-T.; <strong>Xi, Z.</strong>; Burningham, E.; Yun, S.; Laganowsky, A.; Russell, D. Hydration (H₂O and D₂O) Dictates the Stabilities and Conformational Entropy of Transthyretin Tetramers. J. Am. Chem. Soc. 2025, Accepted",
+          description: ""
+        },
+        {
+          title: "3. Kuo, S.-T.; <strong>Xi, Z.</strong>; Cong, X.; Yan, X.; Russell, D. H. Dissecting Hidden Liraglutide Oligomerization Pathways via Direct Mass Technology, Electron-Capture Dissociation, and Molecular Dynamics. Analytical Chemistry 2025, 97 (25), 13465-13473.",
+          description: ""
+        },
+        {
+          title: "4. Sun, H. M.; Evans, K. A.; Powers, M.; <strong>Xi, Z.</strong>; Lantz, C.; Laganowsky, A.; Rye, H.; Russell, D. H. Allostery without Conformational Change: A Native Mass Spectrometry Perspective. The Journal of Physical Chemistry B 2025, 129 (34), 8668-8679.",
+          description: ""
+        },
+        {
+          title: "5. Lantz, C.; <strong>Xi, Z.</strong>; Rider, R. L.; Walker, T. E.; Hebert, M.; Russell, D. H. Temperature-Dependent Trimethylamine N-Oxide Induced the Formation of Substance P Dimers. The Journal of Physical Chemistry B 2024, 128 (46), 11369-11378.",
+          description: ""
+        }
+      ],
+      in_preparation: [
+        {
+          title: "1. Place holder (in preparation)",
+          description: ""
+        },
+        {
+          title: "2. Place holder (in preparation)",
+          description: ""
         }
       ]
     };
 
     // Research content
     const researchContent = `
-research/
-├── native_mass_spec/
-├── molecular_dynamics/
-├── publications/
-└── current_projects/
-
 Loading research cases...
+`;
+
+    // Publications content
+    const publicationsContent = `
+Loading publication records...
 `;
 
     // Research cases organized by category
     const researchData = {
-      publications: [
-        {
-          title: "Liraglutide Binding Mechanisms",
-          description: "Molecular dynamics study of liraglutide interactions with target receptors using atomic and coarse-grained simulations.",
-          status: "In Preparation - Russell Lab"
-        },
-        {
-          title: "TTR Solvation Shell Analysis",
-          description: "Investigation of water density distributions around transthyretin protein using MD simulations.",
-          status: "Under Review"
-        }
-      ],
       projects: [
         {
-          title: "Peptide-Protein Binding Analysis",
-          description: "LBG-AzdOA distance analysis and binding kinetics modeling using computational approaches.",
-          status: "Active - Russell Lab"
+          title: "Place holder 1",
+          description: "Placeholder for future research project descriptions."
         },
         {
-          title: "KD Modeling Framework",
-          description: "Development of computational models for dissociation constant prediction and validation.",
-          status: "Ongoing Research"
-        },
-        {
-          title: "Coarse-Grained MD Protocol",
-          description: "Optimization of MARTINI force field parameters for peptide hormone simulations.",
-          status: "Method Development"
+          title: "Place holder 2",
+          description: "Placeholder for future research project descriptions."
         }
       ],
       techniques: [
         {
-          title: "Molecular Dynamics Simulation",
-          description: "GROMACS, NAMD for all-atom and coarse-grained simulations of biological systems.",
-          status: "Primary Method"
+          title: "Place holder 1",
+          description: "Placeholder for future research project descriptions."
         },
-        {
-          title: "Binding Kinetics Analysis",
-          description: "Distance analysis, free energy calculations, and kinetic modeling of protein-ligand interactions.",
-          status: "Specialized Focus"
-        },
-        {
-          title: "Computational Visualization",
-          description: "VMD, PyMOL, and custom scripts for molecular visualization and analysis.",
-          status: "Data Presentation"
-        }
       ],
-      collaborations: [
-        {
-          title: "Russell Lab - TAMU Chemistry",
-          description: "Primary research group focusing on computational chemistry and molecular recognition.",
-          status: "Research Assistant"
-        },
-        {
-          title: "Computational Chemistry Network",
-          description: "Collaboration with other TAMU chemistry groups on simulation methodologies.",
-          status: "Active Collaboration"
-        }
-      ]
     };
 
-    // Module placeholders
-    const module1Content = `
-Module 1: [PLACEHOLDER]
-This module is reserved for future content.
-You can add any information here.
-`;
-
-    const module2Content = `
-Module 2: [PLACEHOLDER]
-This module is reserved for future content.
-You can add any information here.
-`;
 
     // Typewriter effect
     function typewriter(element, text, speed = 30) {
@@ -755,58 +733,29 @@ You can add any information here.
       }, speed);
     }
 
-    // Show research subtab content
+    // Wrapper function for backward compatibility
     function showResearchSubtab(subtabName) {
-      // Hide all research content
-      document.querySelectorAll('.research-content').forEach(content => {
-        content.classList.remove('active');
-      });
-
-      // Remove active class from all research subtabs
-      document.querySelectorAll('.research-subtab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-
-      // Show selected content and activate tab
-      document.getElementById(subtabName).classList.add('active');
-      event.target.classList.add('active');
-
-      // Load content for the subtab
-      const casesContainer = document.getElementById(subtabName + '-cases');
-      if (!casesContainer.hasAttribute('data-loaded')) {
-        setTimeout(() => {
-          casesContainer.innerHTML = '<div class="success">Loading ' + subtabName + '...</div><br>';
-
-          const cases = researchData[subtabName] || [];
-          cases.forEach((case_, index) => {
-            setTimeout(() => {
-              const caseDiv = document.createElement('div');
-              caseDiv.className = 'research-case';
-              caseDiv.innerHTML = `
-                <div class="info">${case_.title}</div>
-                <div style="margin: 10px 0;">${case_.description}</div>
-                <div class="prompt">Status: ${case_.status}</div>
-              `;
-              casesContainer.appendChild(caseDiv);
-            }, index * 300);
-          });
-
-          // Add placeholders for more content
-          setTimeout(() => {
-            const placeholderDiv = document.createElement('div');
-            placeholderDiv.innerHTML = '<br><div style="color: #666; font-style: italic;">[PLACEHOLDER: Add more ' + subtabName + ' here]</div>';
-            casesContainer.appendChild(placeholderDiv);
-          }, cases.length * 300 + 500);
-
-        }, 500);
-        casesContainer.setAttribute('data-loaded', 'true');
-      }
+      showSubtab('research', subtabName);
     }
 
     // Load initial research content
     function loadInitialResearch() {
-      setTimeout(() => {
-        showResearchSubtab('publications');
+      sectionTimeouts.research = setTimeout(() => {
+        showResearchSubtab('projects');
+        sectionTimeouts.research = null;
+      }, 1000);
+    }
+
+    // Wrapper function for backward compatibility
+    function showPublicationsSubtab(subtabName) {
+      showSubtab('publications', subtabName);
+    }
+
+    // Load initial publications content
+    function loadInitialPublications() {
+      sectionTimeouts.publications = setTimeout(() => {
+        showPublicationsSubtab('peer_reviewed');
+        sectionTimeouts.publications = null;
       }, 1000);
     }
 
@@ -821,15 +770,8 @@ You can add any information here.
       // Show loading overlay
       const placeholder = item.querySelector('.artwork-placeholder');
       if (placeholder) {
-        placeholder.innerHTML = `
-          <div class="loading-overlay">
-            <div class="loading-spinner" style="animation: spin 1s linear infinite;">⟳</div>
-            <div class="loading">Loading 3D visualization...</div>
-            <div style="font-size: 10px; margin-top: 5px; color: #666;">Large file - please wait</div>
-          </div>
-        `;
+        placeholder.innerHTML = `<div class="loading-overlay"><div class="loading-spinner" style="animation: spin 1s linear infinite;">⟳</div><div class="loading">Loading 3D visualization...</div><div style="font-size: 10px; margin-top: 5px; color: #666;">Large file - please wait</div></div>`;
 
-        // Load the iframe after a short delay
         setTimeout(() => {
           const iframe = document.createElement('iframe');
           iframe.src = url;
@@ -853,15 +795,7 @@ You can add any information here.
             if (!hasLoaded) {
               hasLoaded = true;
               clearTimeout(loadTimeout);
-              item.innerHTML = `
-                <div class="artwork-placeholder">
-                  <div style="color: #e74c3c; margin-bottom: 10px;">Visualization failed to load</div>
-                  <div style="font-size: 10px; color: #666; margin-bottom: 10px;">File may be corrupted or too large</div>
-                  <a href="${url}" target="_blank" style="color: #3498db; text-decoration: none; font-size: 11px; border: 1px solid #3498db; padding: 5px 10px; border-radius: 4px;">
-                    Open in New Tab
-                  </a>
-                </div>
-              `;
+              item.innerHTML = `<div class="artwork-placeholder"><div style="color: #e74c3c; margin-bottom: 10px;">Visualization failed to load</div><div style="font-size: 10px; color: #666; margin-bottom: 10px;">File may be corrupted or too large</div><a href="${url}" target="_blank" style="color: #3498db; text-decoration: none; font-size: 11px; border: 1px solid #3498db; padding: 5px 10px; border-radius: 4px;">Open in New Tab</a></div>`;
             }
           };
 
@@ -869,18 +803,7 @@ You can add any information here.
           loadTimeout = setTimeout(() => {
             if (!hasLoaded) {
               hasLoaded = true;
-              item.innerHTML = `
-                <div class="artwork-placeholder">
-                  <div style="color: #f39c12; margin-bottom: 10px;">Large visualization detected</div>
-                  <div style="font-size: 10px; color: #666; margin-bottom: 10px;">26MB 3D Plotly file</div>
-                  <a href="${url}" target="_blank" style="color: #3498db; text-decoration: none; font-size: 11px; border: 1px solid #3498db; padding: 5px 10px; border-radius: 4px;">
-                    Open in New Tab
-                  </a>
-                  <div style="font-size: 9px; margin-top: 5px; color: #95a5a6;">
-                    Better performance in dedicated tab
-                  </div>
-                </div>
-              `;
+              item.innerHTML = `<div class="artwork-placeholder"><div style="color: #f39c12; margin-bottom: 10px;">Large visualization detected</div><div style="font-size: 10px; color: #666; margin-bottom: 10px;">26MB 3D Plotly file</div><a href="${url}" target="_blank" style="color: #3498db; text-decoration: none; font-size: 11px; border: 1px solid #3498db; padding: 5px 10px; border-radius: 4px;">Open in New Tab</a><div style="font-size: 9px; margin-top: 5px; color: #95a5a6;">Better performance in dedicated tab</div></div>`;
             }
           }, 10000); // 10 second timeout for large files
 
@@ -899,14 +822,8 @@ You can add any information here.
       // Show loading overlay
       const placeholder = item.querySelector('.artwork-placeholder');
       if (placeholder) {
-        placeholder.innerHTML = `
-          <div class="loading-overlay">
-            <div class="loading-spinner" style="animation: spin 1s linear infinite;">⟳</div>
-            <div class="loading">Loading video...</div>
-          </div>
-        `;
+        placeholder.innerHTML = `<div class="loading-overlay"><div class="loading-spinner" style="animation: spin 1s linear infinite;">⟳</div><div class="loading">Loading video...</div></div>`;
 
-        // Load the video
         setTimeout(() => {
           const video = document.createElement('video');
           video.src = url;
@@ -922,52 +839,97 @@ You can add any information here.
           };
 
           video.onerror = () => {
-            item.innerHTML = `
-              <div class="artwork-placeholder">
-                <div style="color: #e74c3c; margin-bottom: 10px;">Video not found</div>
-                <div style="font-size: 10px; color: #666;">Run convert_videos.sh first</div>
-                <div style="font-size: 9px; margin-top: 5px; color: #95a5a6;">
-                  Expected: ${url.split('/').pop()}
-                </div>
-              </div>
-            `;
+            item.innerHTML = `<div class="artwork-placeholder"><div style="color: #e74c3c; margin-bottom: 10px;">Video not found</div><div style="font-size: 10px; color: #666;">Run convert_videos.sh first</div><div style="font-size: 9px; margin-top: 5px; color: #95a5a6;">Expected: ${url.split('/').pop()}</div></div>`;
           };
         }, 1000);
       }
     }
 
-    // Show bio subtab content
-    function showBioSubtab(subtabName) {
-      // Hide all bio content
-      document.querySelectorAll('#bio .research-content').forEach(content => {
+    // Global variable to track initialization timeouts
+    let sectionTimeouts = {};
+    
+    // Unified data structure
+    const sectionData = {
+      bio: bioData,
+      publications: publicationsData,
+      research: researchData
+    };
+    
+    // Section configuration
+    const sectionConfig = {
+      bio: {
+        defaultSubtab: 'about',
+        hierarchicalSections: ['skills', 'education', 'contact'],
+        loadingText: 'Loading'
+      },
+      publications: {
+        defaultSubtab: 'peer_reviewed',
+        hierarchicalSections: [],
+        loadingText: 'Loading',
+        textSuffix: 'publications'
+      },
+      research: {
+        defaultSubtab: 'projects',
+        hierarchicalSections: ['projects', 'techniques', 'collaborations'],
+        loadingText: 'Loading'
+      }
+    };
+
+    // Unified subtab function - replaces showBioSubtab, showPublicationsSubtab, showResearchSubtab
+    function showSubtab(sectionName, subtabName) {
+      // Clear any pending initialization for this section
+      if (sectionTimeouts[sectionName]) {
+        clearTimeout(sectionTimeouts[sectionName]);
+        sectionTimeouts[sectionName] = null;
+      }
+      
+      // Hide all content for this section
+      document.querySelectorAll(`#${sectionName} .content-section`).forEach(content => {
         content.classList.remove('active');
       });
 
-      // Remove active class from all bio subtabs
-      document.querySelectorAll('#bio .research-subtab').forEach(tab => {
+      // Remove active class from all subtabs in this section
+      document.querySelectorAll(`#${sectionName} .subtab`).forEach(tab => {
         tab.classList.remove('active');
       });
 
       // Show selected content and activate tab
-      document.getElementById(subtabName).classList.add('active');
-      event.target.classList.add('active');
-
+      if (event && event.target) {
+        event.target.classList.add('active');
+      } else {
+        // Manually activate the correct tab button when called programmatically
+        const tabButton = document.querySelector(`#${sectionName} .subtab[onclick*="${subtabName}"]`);
+        if (tabButton) {
+          tabButton.classList.add('active');
+        }
+      }
+      
       // Load content for the subtab
       const casesContainer = document.getElementById(subtabName + '-cases');
+      
+      // Always show the content div first
+      document.getElementById(subtabName).classList.add('active');
+      
       if (!casesContainer.hasAttribute('data-loaded')) {
         setTimeout(() => {
-          casesContainer.innerHTML = '<div class="success">Loading ' + subtabName + '...</div><br>';
-
-          const cases = bioData[subtabName] || [];
+          casesContainer.innerHTML = '';
+          const loadingSpan = document.createElement('span');
+          loadingSpan.className = 'success';
+          
+          const config = sectionConfig[sectionName];
+          const loadingText = config.loadingText + ' ' + subtabName.replace('_', '-');
+          const suffix = config.textSuffix ? ' ' + config.textSuffix : '';
+          loadingSpan.textContent = loadingText + suffix + '...';
+          
+          casesContainer.appendChild(loadingSpan);
+          const cases = sectionData[sectionName][subtabName] || [];
+          
+          // Determine if this section should use hierarchical styling
+          const useHierarchy = config.hierarchicalSections.includes(subtabName);
+          
           cases.forEach((case_, index) => {
             setTimeout(() => {
-              const caseDiv = document.createElement('div');
-              caseDiv.className = 'research-case';
-              caseDiv.innerHTML = `
-                <div class="info">${case_.title}</div>
-                <div style="margin: 10px 0;">${case_.description}</div>
-                <div class="prompt">Status: ${case_.status}</div>
-              `;
+              const caseDiv = createContentCase(case_, useHierarchy);
               casesContainer.appendChild(caseDiv);
             }, index * 300);
           });
@@ -975,19 +937,57 @@ You can add any information here.
           // Add placeholders for more content
           setTimeout(() => {
             const placeholderDiv = document.createElement('div');
-            placeholderDiv.innerHTML = '<br><div style="color: #666; font-style: italic;">[PLACEHOLDER: Add more ' + subtabName + ' information here]</div>';
+            placeholderDiv.innerHTML = '<br><div style="color: #666; font-style: italic;">[PLACEHOLDER: Add more ' + subtabName.replace('_', '-') + (config.textSuffix ? ' ' + config.textSuffix : '') + ' here]</div>';
             casesContainer.appendChild(placeholderDiv);
           }, cases.length * 300 + 500);
 
-        }, 500);
-        casesContainer.setAttribute('data-loaded', 'true');
+          casesContainer.setAttribute('data-loaded', 'true');
+        }, 10);
       }
+    }
+
+    // Helper function to create content case with optional hierarchical styling
+    function createContentCase(caseData, useHierarchy = false) {
+      const caseDiv = document.createElement('div');
+      caseDiv.className = 'content-case';
+      
+      if (useHierarchy) {
+        // Use hierarchical styling (title/description with different colors and indentation)
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'content-title';
+        titleDiv.textContent = caseData.title;
+        const descDiv = document.createElement('div');
+        descDiv.className = 'content-description';
+        descDiv.textContent = caseData.description;
+        caseDiv.appendChild(titleDiv);
+        caseDiv.appendChild(descDiv);
+      } else {
+        // Use standard styling
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'info';
+        titleDiv.innerHTML = caseData.title;
+        caseDiv.appendChild(titleDiv);
+        if (caseData.description) {
+          const descDiv = document.createElement('div');
+          descDiv.style.margin = '10px 0';
+          descDiv.textContent = caseData.description;
+          caseDiv.appendChild(descDiv);
+        }
+      }
+      
+      return caseDiv;
+    }
+
+    // Wrapper function for backward compatibility
+    function showBioSubtab(subtabName) {
+      showSubtab('bio', subtabName);
     }
 
     // Load initial bio content
     function loadInitialBio() {
-      setTimeout(() => {
+      sectionTimeouts.bio = setTimeout(() => {
         showBioSubtab('about');
+        sectionTimeouts.bio = null;
       }, 1000);
     }
 
@@ -1018,9 +1018,13 @@ You can add any information here.
         switch(tabName) {
           case 'bio':
             content = bioContent;
+            // Immediately show first subtab content
             setTimeout(() => {
+              document.getElementById('about').classList.add('active');
+            }, 10);
+            sectionTimeouts.bio = setTimeout(() => {
               // Reset bio subtabs and reload content
-              document.querySelectorAll('#bio .research-content').forEach(rc => {
+              document.querySelectorAll('#bio .content-section').forEach(rc => {
                 const casesContainer = rc.querySelector('[id$="-cases"]');
                 if (casesContainer) {
                   casesContainer.innerHTML = '';
@@ -1028,13 +1032,43 @@ You can add any information here.
                 }
               });
               loadInitialBio();
-            }, 1500);
+              // Ensure first subtab stays visible after initialization
+              setTimeout(() => {
+                document.getElementById('about').classList.add('active');
+              }, 10);
+            }, 300);
+            break;
+          case 'publications':
+            content = publicationsContent;
+            // Immediately show first subtab content
+            setTimeout(() => {
+              document.getElementById('peer_reviewed').classList.add('active');
+            }, 10);
+            sectionTimeouts.publications = setTimeout(() => {
+              // Reset publications subtabs and reload content
+              document.querySelectorAll('#publications .content-section').forEach(rc => {
+                const casesContainer = rc.querySelector('[id$="-cases"]');
+                if (casesContainer) {
+                  casesContainer.innerHTML = '';
+                  casesContainer.removeAttribute('data-loaded');
+                }
+              });
+              loadInitialPublications();
+              // Ensure first subtab stays visible after initialization
+              setTimeout(() => {
+                document.getElementById('peer_reviewed').classList.add('active');
+              }, 10);
+            }, 300);
             break;
           case 'research':
             content = researchContent;
+            // Immediately show first subtab content
             setTimeout(() => {
+              document.getElementById('projects').classList.add('active');
+            }, 10);
+            sectionTimeouts.research = setTimeout(() => {
               // Reset research subtabs and reload content
-              document.querySelectorAll('#research .research-content').forEach(rc => {
+              document.querySelectorAll('#research .content-section').forEach(rc => {
                 const casesContainer = rc.querySelector('[id$="-cases"]');
                 if (casesContainer) {
                   casesContainer.innerHTML = '';
@@ -1042,16 +1076,14 @@ You can add any information here.
                 }
               });
               loadInitialResearch();
-            }, 1500);
+              // Ensure first subtab stays visible after initialization
+              setTimeout(() => {
+                document.getElementById('projects').classList.add('active');
+              }, 10);
+            }, 300);
             break;
           case 'artwork':
-            content = 'Scanning artwork directory...\n\nFound 6 visualization files:\n- research_3_ttr_solvation.html\n- research_1_liraglutide_atomic.mp4\n- research_1_liraglutide_coarse.mp4\n- research_2_lbg_AzdOA_distance.mp4\n- research_4_kd_modeling.mp4\n- [future_work_placeholder]\n\nArtwork ready. Click any item to load visualization.';
-            break;
-          case 'module1':
-            content = module1Content;
-            break;
-          case 'module2':
-            content = module2Content;
+            content = 'Loading artwork gallery...';
             break;
         }
 
@@ -1066,9 +1098,9 @@ You can add any information here.
       typewriter(document.getElementById('bio-text'), bioContent, 25);
 
       // Load initial bio content
-      setTimeout(() => {
+      sectionTimeouts.bio = setTimeout(() => {
         loadInitialBio();
-      }, 1500);
+      }, 300);
 
       // Animate all loading spinners
       const spinners = document.querySelectorAll('.loading-spinner');
